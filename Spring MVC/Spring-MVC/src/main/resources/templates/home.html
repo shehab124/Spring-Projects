@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>HELLO Spring boot!</h1>
+
+    <form action="#" th:object="${messageForm}" th:action="@{/animal}" method="POST">
+        <label for="animalText">Enter an Animal: </label>
+        <input type="text" id="animalText" name="animalText" th:field="*{animalName}">
+        <label for="adjective">Enter an Adjective:</label>
+        <input type="text" id="adjective" name="adjective" th:field="*{adjective}">
+        <input type="submit">
+    </form>
+
+    <h1 th:each="msg : ${greeting}"
+        th:text="${msg}"
+        th:if="${#lists.size(greeting) <= 5}">
+        Hello, homepage!</h1>
+
+    <h1 th:if="${#lists.size(greeting) > 5}">I think that's enough</h1>
+
+<!--    <form th:object="${newMessage}" action="#" th:action="@{/home}" method="POST">-->
+<!--        <label for="newMessageText">Submit a new message: </label>-->
+<!--        <input id="newMessageText" type="text" th:field="*{text}">-->
+<!--        <input type="submit" value="add me">-->
+<!--    </form>-->
+
+</body>
+</html>
