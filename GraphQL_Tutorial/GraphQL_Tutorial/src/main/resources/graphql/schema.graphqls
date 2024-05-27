@@ -1,0 +1,47 @@
+type Query {
+    authors: [Author]
+    authorById(id: ID!): Author
+
+    findDogs: [Dog]!
+    findDogById: Dog!
+}
+
+type Mutation {
+    addBook(book: BookInput): Book
+    deleteBook(id: ID): Book
+
+    addDog(dog: DogInput): Dog!
+    deleteDogBreed(breed: String!): Boolean
+    updateDogName(newName: String!, id: ID!): Dog!
+}
+
+input DogInput {
+    name: String!
+    breed: String!
+    origin: String!
+}
+
+input BookInput {
+    title: String!
+    publisher: String
+    authorId: ID!
+}
+
+type Author {
+    id: ID!
+    name: String!
+    books: [Book]
+}
+
+type Book {
+    id: ID!
+    title: String!
+    publisher: String
+}
+
+type Dog {
+    id: ID!
+    name: String!
+    breed: String!
+    origin: String!
+}
