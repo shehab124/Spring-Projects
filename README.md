@@ -1,1 +1,1 @@
-Spring boot projects with thymeleaf, mybatis, spring security.
+Spring boot projects with thymeleaf, mybatis, spring security, GraphQL.
