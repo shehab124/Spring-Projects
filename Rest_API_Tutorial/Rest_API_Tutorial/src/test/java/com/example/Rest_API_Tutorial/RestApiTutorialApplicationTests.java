@@ -1,13 +1,16 @@
 package com.example.Rest_API_Tutorial;
 
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestApiTutorialApplicationTests {
+public class RestApiTutorialApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads()
+    {
+
+    }
 
 }

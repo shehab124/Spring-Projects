@@ -11,7 +11,7 @@ import java.util.List;
 public interface DogRepository extends CrudRepository<Dog, Long> {
 
      @Query("select d.breed from Dog as d")
-    public List<String>  getAllBreeds();
+    public List<String> getAllBreeds();
 
      @Query("select d.breed from Dog as d where d.id = ?1")
     public String getBreedById(Long id);
