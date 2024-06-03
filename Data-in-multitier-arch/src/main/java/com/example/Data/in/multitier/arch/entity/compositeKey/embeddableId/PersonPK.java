@@ -1,11 +1,12 @@
-package com.example.Data.in.multitier.arch.entity.idClass;
+package com.example.Data.in.multitier.arch.entity.compositeKey.embeddableId;
 
-
+import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class PersonPk implements Serializable {
+@Embeddable
+public class PersonPK implements Serializable {
 
     private int height;
     private String color;
@@ -17,12 +18,12 @@ public class PersonPk implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this)  return true;
-        if(obj == null || obj.getClass() != getClass())
+        if(this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
             return false;
-
-         PersonPk personPk = (PersonPk) obj;
-         return personPk.height == this.height && personPk.color.equals(this.color);
+        PersonPK personPK = (PersonPK) obj;
+        return this.height == ((PersonPK) obj).height && this.color.equals(((PersonPK) obj).color);
     }
 
     public int getHeight() {

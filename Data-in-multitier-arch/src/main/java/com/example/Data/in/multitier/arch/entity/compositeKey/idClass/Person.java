@@ -1,6 +1,6 @@
-package com.example.Data.in.multitier.arch.entity.idClass;
+package com.example.Data.in.multitier.arch.entity.compositeKey.idClass;
 
-import com.example.Data.in.multitier.arch.entity.embeddableId.PersonPK;
+import com.example.Data.in.multitier.arch.entity.compositeKey.idClass.PersonPk;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
@@ -22,7 +22,7 @@ public class Person {
         return id;
     }
 
-    public void setId(PersonPK id)
+    public void setId(PersonPk id)
     {
         this.color = id.getColor();
         this.height = id.getHeight();

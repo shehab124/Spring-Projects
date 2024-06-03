@@ -1,4 +1,4 @@
-package com.example.Data.in.multitier.arch.entity.embeddableId;
+package com.example.Data.in.multitier.arch.entity.compositeKey.embeddableId;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
