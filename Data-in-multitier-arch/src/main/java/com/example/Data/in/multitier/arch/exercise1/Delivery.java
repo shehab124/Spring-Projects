@@ -1,14 +1,25 @@
-package com.example.Data.in.multitier.arch.entity;
+package com.example.Data.in.multitier.arch.exercise1;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
-import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Delivery.findByName",
+                query = "select d from delivery d where d.name = :name"
+        ),
+        @NamedQuery(
+                name = "Delivery.getBill",
+                query = "select new com.example.Data.in.multitier.arch.exercise1.RecipientAndPrice(d.name, SUM(p.price)) " +
+                        "from Delivery d " +
+                        "JOIN d.plants p " +
+                        "WHERE d.id = :deliveryId " +
+                        "GROUP BY d.name"
+        )
+})
 @Entity
 public class Delivery {
 
@@ -25,6 +36,9 @@ public class Delivery {
     private LocalDateTime deliveryDateTime;
 
     private boolean isCompleted;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery", cascade = CascadeType.ALL)
+    private List<Plant> plants;
 
     public Delivery() {
     }
@@ -75,5 +89,13 @@ public class Delivery {
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+
+    public List<Plant> getPlants() {
+        return plants;
+    }
+
+    public void setPlants(List<Plant> plants) {
+        this.plants = plants;
     }
 }
