@@ -35,7 +35,7 @@ public class Delivery {
 
     private LocalDateTime deliveryDateTime;
 
-    private boolean isCompleted;
+    private boolean isCompleted = false;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery", cascade = CascadeType.ALL)
     private List<Plant> plants;
